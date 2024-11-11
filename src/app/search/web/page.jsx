@@ -1,3 +1,4 @@
+import WebSearchResults from "@/components/WebSearchResults";
 import Link from "next/link";
 
 export default async function WebSearchPage({ searchParams }) {
@@ -6,8 +7,8 @@ export default async function WebSearchPage({ searchParams }) {
   );
   if (!res.ok) throw new Error("Something went wrong");
   const data = await res.json();
-  const result = data.items;
-  if (!result) {
+  const results = data.items;
+  if (!results) {
     return (
       <div className="flex flex-col justify-center items-center pt-10">
         <h1 className="text-3xl mb-4">
@@ -23,10 +24,5 @@ export default async function WebSearchPage({ searchParams }) {
       </div>
     );
   }
-  return (
-    <div>
-      {result &&
-        result.map((result) => <h1 key={result.title}>{result.title}</h1>)}
-    </div>
-  );
+  return <div>{results && <WebSearchResults results={data} />}</div>;
 }
