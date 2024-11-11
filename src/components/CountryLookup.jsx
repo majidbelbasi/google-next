@@ -16,9 +16,7 @@ export default function CountryLookup() {
 
         setCountry(data.country);
       } catch (error) {
-        throw new Error(
-          error.message || "An error occured while fetching country"
-        );
+        console.log(error.message || "An error occured while fetching country");
       }
     };
     getCoutry();
