@@ -5,7 +5,7 @@ export default function layout({ children }) {
   return (
     <div>
       <SearchHeader />
-      <Suspense>{children}</Suspense>
+      {children}
     </div>
   );
 }
