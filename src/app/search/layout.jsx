@@ -4,7 +4,7 @@ export default function layout({ children }) {
   return (
     <div>
       <SearchHeader />
-   {children}
+      {children}
     </div>
   );
 }
